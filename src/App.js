@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, {useState} from 'react';
+import AppRouter from './components/AppRouter';
+import { AuthContext } from './context';
+import 'antd/dist/antd.css'; 
+import { Layout } from 'antd';
+import Navbar from './components/UI/navbar/Navbar';
+const { Content } = Layout;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [isAuth, setIsAuth] = useState(true);
+  return ( 
+  <Layout className="layout">
+    <Navbar />
+    <Content style={{ padding: '0 50px' }}>
+      <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+        <AppRouter />
+      </AuthContext.Provider>
+    </Content>
+  </Layout>    
   );
 }
 

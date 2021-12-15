@@ -1,0 +1,11 @@
+.AllPosts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
